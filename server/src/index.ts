@@ -3,6 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { userRouter } from './routes/users';
+import { recipesRouter } from './routes/recipes';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", userRouter);
+app.use("/recipes", recipesRouter);
 
 mongoose.connect(process.env.MONGOCONNECT!)
 
